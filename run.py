@@ -64,19 +64,19 @@ class DangerousMaze:
         while self.current_node['coord'] != self.finish_coord:
             coords_to_check = [(self.current_node['coord'][0] + i[0], self.current_node['coord'][1] + i[1])
                                for i in [(-1, 0), (1, 0), (0, -1), (0, 1)]]
-            d = [i['coord'] for i in self.visited_nodes]
+            visited_coords = [i['coord'] for i in self.visited_nodes]
             for coord in coords_to_check:
-                if self.board[coord[0]][coord[1]] != '#' and coord not in d:
+                if self.board[coord[0]][coord[1]] != '#' and coord not in visited_coords:
                     if self.board[coord[0]][coord[1]] == ' ' or self.board[coord[0]][coord[1]] == 'G':
                         added_cost = 1
                     else:
                         added_cost = 11
                     new_cost = self.cost + added_cost
                     c = dict((i[1]['coord'], i[0]) for i in self.heap)
-                    v = dict((i[1]['coord'], i[1]['path']) for i in self.heap)
+                    p = dict((i[1]['coord'], i[1]['path']) for i in self.heap)
                     if coord in c:
                         old_cost = c[coord]
-                        old_path = v[coord]
+                        old_path = p[coord]
                         if old_cost >= new_cost:
                             self.heap.remove((old_cost, {'coord': coord, 'path': old_path}))
                             heapq.heappush(self.heap, (new_cost, {'coord': coord, 'path': self.current_node['coord']}))
