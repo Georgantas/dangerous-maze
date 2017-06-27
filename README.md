@@ -1,6 +1,7 @@
 # Problem
 ## Description
-Our hero is trapped in a maze once again. This time it's worse: There's mud up to our hero's knees, and there are monsters in the maze! You must find a path so our hero can savely escape!
+Our hero is trapped in a maze. There's mud up to our hero's knees, and there are monsters in the maze! You must find a path so our hero can savely escape!
+
 ## Input
 Our input is an ASCII-map of a maze. The map uses the following characters:
 * '#' for wall - Our hero may not move here
@@ -10,33 +11,34 @@ Our input is an ASCII-map of a maze. The map uses the following characters:
 * 'G' this is where our hero wishes to go, the goal, you may move here vertically or horizontally, costing 1HP. Your route should end here.
 ## Output
 The same as the input, but mark the route which costs the least amount of HP with '*', as well as the cost of the route.
-## Example
-**Input**
-```
-######
-#S  m#
-#m## #
-# m G#
-######
-```
-**Output**
-```
-######
-#S***#
-#m##*#
-# m G#
-######
-Cost: 15HP
-```
-**Source: https://www.reddit.com/r/dailyprogrammer/comments/5vwwzg/20170224_challenge_303_hard_escaping_a_dangerous/**
+
+**More info: https://www.reddit.com/r/dailyprogrammer/comments/5vwwzg/20170224_challenge_303_hard_escaping_a_dangerous/**
 
 # Solution
-The solution to the input `input.txt` is 598 HP using Dijkstra's Algorithm.
+## Output
+```
+Georgantas$ python run.py input.txt
+Computing cost...
+Total cost: 598 HP
+Generating image...
+```
 
-[insert gif]
+## Visualization
+![Alt text](/image_zoom.png "Visualization.")
+
+**Color Code**
+```
+Black: Wall ('#')
+White: Empty Space (' ')
+Red: Monster ('m')
+Green: Start ('S')
+Blue: Finish ('G')
+Grey: Route Taken
+```
 
 # Dijkstra's Algorithm
-Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph, which may represent, for example, road networks. It was conceived by computer scientist Edsger W. Dijkstra in 1956 and published three years later.
+Dijkstra's algorithm was used to solve this problem. This algorithm is generally used for finding the shortest paths between nodes in a graph, which may represent, for example, road networks. It was conceived by computer scientist Edsger W. Dijkstra in 1956 and published three years later.
+
 ## Algorithm
 Let the node at which we are starting be called the initial node. Let the distance of node Y be the distance from the initial node to Y. Dijkstra's algorithm will assign some initial distance values and will try to improve them step by step.
 * Assign to every node a tentative distance value: set it to zero for our initial node and to infinity for all other nodes.
@@ -47,3 +49,5 @@ Let the node at which we are starting be called the initial node. Let the distan
 * Otherwise, select the unvisited node that is marked with the smallest tentative distance, set it as the new "current node", and go back to step 3.
 
 **Source: https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm**
+
+**More Info: https://www.youtube.com/watch?v=GazC3A4OQTE**
