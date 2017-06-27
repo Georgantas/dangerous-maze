@@ -42,11 +42,9 @@ class DangerousMaze:
                 else:
                     pixel = (0, 0, 0)
                 img_data.append(pixel)
-
         img = Image.new('RGB', (len(self.board), len(self.board[0])))
         img.putdata(img_data)
         img.save('image.png')
-
 
     def find_coord_of_symbol(self, symbol):
         for rowIdx, row in enumerate(self.board):
