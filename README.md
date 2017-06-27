@@ -37,7 +37,7 @@ Grey: Route Taken
 ```
 
 # Dijkstra's Algorithm
-Dijkstra's algorithm was used to solve this problem. This algorithm is used for finding the shortest paths between nodes in a graph, which may represent, for example, road networks. It was conceived by computer scientist Edsger W. Dijkstra in 1956 and published three years later.
+Dijkstra's algorithm was used to solve this problem. This algorithm is generally used for finding the shortest paths between nodes in a graph, which may represent, for example, road networks. It was conceived by computer scientist Edsger W. Dijkstra in 1956 and published three years later.
 
 ## Algorithm
 Let the node at which we are starting be called the initial node. Let the distance of node Y be the distance from the initial node to Y. Dijkstra's algorithm will assign some initial distance values and will try to improve them step by step.
