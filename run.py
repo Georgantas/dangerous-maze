@@ -46,6 +46,7 @@ class DangerousMaze:
         img.putdata(img_data)
         img.save('image.png')
 
+    # Only called twice.
     def find_coord_of_symbol(self, symbol):
         for rowIdx, row in enumerate(self.board):
             for columnIdx, column in enumerate(row):
